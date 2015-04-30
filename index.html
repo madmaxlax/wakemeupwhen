@@ -37,26 +37,40 @@
 		</div>
 	</div>
 	<div class="container" ng-controller="geoController as geo" id="geoctlr">
-<!-- 		all data:
-		{{locdata}} -->
+		<h2>Status</h2>
+		{{locdata}}
+		<br>
+		<div class="alert alert-warning alert-dismissable" role="alert"><strong>Warning: </strong>This basically doesn't do anything
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<button ng-if="!locFound && !searching" ng-click="geo.getLoc()">Try Again?</button>
 		<table>
 			<tr>
-				<td>Time:</td><td>{{locdata.timestamp  | date:'medium' }}</td>
+				<td>Time:</td>
+				<td>{{locdata.timestamp | date:'medium' }}</td>
 			</tr>
 			<tr>
-				<td>lat:</td><td>{{locdata.coords.latitude}}</td>
+				<td>lat:</td>
+				<td>{{locdata.coords.latitude}}</td>
 			</tr>
 			<tr>
-				<td>long:</td><td>{{locdata.coords.longitude}}</td>
+				<td>long:</td>
+				<td>{{locdata.coords.longitude}}</td>
 			</tr>
 			<tr>
-				<td>Accuracy:</td><td>{{locdata.coords.accuracy | number:1}} m</td>
+				<td>Accuracy:</td>
+				<td>{{locdata.coords.accuracy | number:1}} m</td>
 			</tr>
 			<tr>
-				<td>Speed:</td><td>{{(locdata.coords.speed/3.6) | number:1}} km/h</td>
+				<td>Speed:</td>
+				<td>{{(locdata.coords.speed/3.6) | number:1}} km/h</td>
 			</tr>
 			<tr>
-				<td>heading:</td><td>{{locdata.coords.heading | number:1}}&#176;<span id="compassarrow" class="glyphicon glyphicon-arrow-up"></span></td>
+				<td>heading:</td>
+				<td>{{locdata.coords.heading | number:1}}&#176;<span id="compassarrow" class="glyphicon glyphicon-arrow-up"></span>
+				</td>
 			</tr>
 		</table>
 
